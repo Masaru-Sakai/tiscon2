@@ -34,7 +34,7 @@ public class NewCampaignController {
      * @return HttpResponse
      */
     public HttpResponse index() {
-        return templateEngine.render("register", "user", new RegisterForm());
+        return templateEngine.render("newcampaign", "user", new RegisterForm());
     }
 
     /**
@@ -46,7 +46,7 @@ public class NewCampaignController {
     public HttpResponse register(RegisterForm form) {
 
         if (form.hasErrors()) {
-            return templateEngine.render("register", "user", form);
+            return templateEngine.render("newcampaign", "user", form);
         }
 
         UserDao userDao = domaProvider.getDao(UserDao.class);

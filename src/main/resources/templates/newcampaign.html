@@ -36,11 +36,8 @@
                                     </ul>
                                 </div>
                                 <div class="field" th:classappend="${user.hasErrors('email')} ? 'error'">
-                                    <textarea name="signatureComment" placeholder="宣言"
-                                              th:value="${signature.signatureComment}"></textarea>
-                                    <ul class="ui pointing red basic label" th:if="${signature.hasErrors('signatureComment')}">
-                                        <li th:each="message : ${signature.getErrors('signatureComment')}" th:text="${message}"></li>
-                                    </ul>
+                                    <textarea name="email" placeholder="宣言"
+                                              th:value="${user.email}"></textarea>
                                 </div>
                                 <div class="field" th:classappend="${user.hasErrors('pass')} ? 'error'">
                                     <input type="password" name="pass" placeholder="何人"/>
