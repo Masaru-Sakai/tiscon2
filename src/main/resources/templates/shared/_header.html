@@ -7,7 +7,7 @@
         <a href="/" class="header item logo">SIG COLLE</a>
 
         <div class="right menu">
-            <div class="ui link item dropdown">
+            <div th:if="${isLogin}" class="ui link item dropdown">
                 <span class="text">キャンペーン</span>
                 <i class="dropdown icon"></i>
                 <div class="menu">
@@ -16,8 +16,8 @@
                 </div>
             </div>
 
-            <a th:unless="${isLogin}" href="/register" class="header item">ユーザ登録</a>
-            <a th:unless="${isLogin}" href="/login" class="header item">ログイン</a>
+            <a th:unless="${isLogin}" href="/register" class="item">ユーザ登録</a>
+            <a th:unless="${isLogin}" href="/login" class="item">ログイン</a>
 
             <div th:if="${isLogin}" class="ui link item dropdown">
                 <span th:text="${session.principal.userName}">name</span> さん
@@ -26,7 +26,7 @@
                     <a class="item" href="#">ユーザ情報変更</a>
                 </div>
             </div>
-            <a th:if="${isLogin}" href="/logout" class="header item">ログアウト</a>
+            <a th:if="${isLogin}" href="/logout" class="item">ログアウト</a>
         </div>
 
     </div>
