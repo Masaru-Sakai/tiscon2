@@ -20,7 +20,7 @@ public class CampaignForm extends FormBase {
     private String statement;
 
     private Long goal;
-    
+
     private Long createUserId;
 
     public Long getCampaignIdLong() {
