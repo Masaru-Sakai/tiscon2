@@ -22,7 +22,8 @@
                               th:action="@{~/auth/campaign}">
                             <div class="field">
                                 <label>タイトル</label>
-                                <input type="number" name="createUserId" placeholder="UserID"></div>
+                                <input type="number" name="createUserId" placeholder="UserID"
+                                       th:value="${session != null and session.principal != null} ? ${session.principal.UserId} : ${new.nreateUserId}"></div>
                             <div class="field">
                                 <label>タイトル</label>
                                 <input type="text" name="title" placeholder="タイトル"/></div>

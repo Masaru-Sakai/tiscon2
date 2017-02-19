@@ -105,7 +105,7 @@ public class CampaignController {
      * 新規キャンペーン作成処理.
      * @return HttpResponse
      */
-    public HttpResponse create(CampaignForm form) {
+    public HttpResponse create(CampaignForm form)  {
         // TODO: create campaign
         if (form.hasErrors()) {
            return templateEngine.render("signature/new", "new", form);
@@ -117,6 +117,7 @@ public class CampaignController {
                 .set(Campaign::setTitle, form.getTitle())
                 .set(Campaign::setStatement, form.getStatement())
                 .set(Campaign::setGoal, form.getGoal())
+                .set(Campaign::setCreateUserId, form.getCreateUserId())
                 .build();
         campaignDao.insert(campaign);
 

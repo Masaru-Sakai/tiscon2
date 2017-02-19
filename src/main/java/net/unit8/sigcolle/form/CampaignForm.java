@@ -21,7 +21,7 @@ public class CampaignForm extends FormBase {
 
     private Long goal;
 
-    private String createUserId;
+    private Long createUserId;
 
     public Long getCampaignIdLong() {
         return Long.parseLong(campaignId);
