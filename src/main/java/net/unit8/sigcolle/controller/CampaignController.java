@@ -3,6 +3,7 @@ package net.unit8.sigcolle.controller;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import enkan.collection.Multimap;
 import enkan.component.doma2.DomaProvider;
 import enkan.data.Flash;
 import enkan.data.HttpResponse;
@@ -105,12 +106,15 @@ public class CampaignController {
      * 新規キャンペーン作成処理.
      * @return HttpResponse
      */
+
+
     public HttpResponse create(CampaignForm form)  {
         // TODO: create campaign
         if (form.hasErrors()) {
            return templateEngine.render("signature/new", "new", form);
         }
         CampaignDao campaignDao = domaProvider.getDao(CampaignDao.class);
+
 
 
         Campaign campaign = builder(new Campaign())

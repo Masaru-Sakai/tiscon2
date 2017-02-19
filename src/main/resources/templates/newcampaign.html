@@ -22,14 +22,18 @@
                                   th:action="@{~/newcampaign}"
                                   th:classappend="${user.hasErrors()} ? 'error'">
                                 <div class="field" th:classappend="${user.hasErrors('lastName')} ? 'error'">
-                                    <input type="text" name="lastName" placeholder="作った人の名前"
+                                    <input type="text" name="lastName" placeholder="例：開発に必要なサイトはプロキシでのブロックをやめたい！"
                                            th:value="${user.lastName != null} ? ${user.lastName}" />
                                     <ul class="ui pointing red basic label" th:if="${user.hasErrors('lastName')}">
                                         <li th:each="message : ${user.getErrors('lastName')}" th:text="${message}"></li>
                                     </ul>
                                 </div>
                                 <div class="field"  th:classappend="${user.hasErrors('firstName')} ? 'error'">
-                                    <input type="text" name="firstName" placeholder="タイトル"
+                                    <input type="text" name="firstName" placeholder="エンジニアを絶滅から救うために、以下のことを実現させましょう！
+•全社で使えるチャットを導入します。
+•フリーWi-Fiを使えるスポットを増やします。
+•PC完備の研修室を作ります。
+"
                                            th:value="(${user.firstName}!=null)?${user.firstName}"/>
                                     <ul class="ui pointing red basic label" th:if="${user.hasErrors('firstName')}">
                                         <li th:each="message : ${user.getErrors('firstName')}" th:text="${message}"></li>

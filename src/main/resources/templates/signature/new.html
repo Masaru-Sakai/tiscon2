@@ -25,13 +25,17 @@
                                        th:value="${session != null and session.principal != null} ? ${session.principal.UserId} : ${new.createUserId}"></div>
                             <div class="field">
                                 <label>タイトル</label>
-                                <input type="text" name="title" placeholder="タイトル"/></div>
+                                <input type="text" name="title" placeholder="例：開発に必要なサイトはプロキシでのブロックをやめたい！"/></div>
                             <div class="field">
                                 <label>内容</label>
-                                <textarea type="text" name="statement" placeholder="内容"></textarea></div>
+                                <textarea type="text" name="statement" placeholder="例：エンジニアを絶滅から救うために、以下のことを実現させましょう！
+•全社で使えるチャットを導入します。
+•フリーWi-Fiを使えるスポットを増やします。
+•PC完備の研修室を作ります。
+"></textarea></div>
                             <div class="field">
                                 <label>目標人数</label>
-                                <input type="number" name="goal"></div>
+                                <input type="number" name="goal" placeholder="数字を入力してください"></div>
                             <button type="submit" class="ui primary button">作成</button>
                         </form>
                         </div>
