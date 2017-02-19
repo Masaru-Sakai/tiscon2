@@ -124,6 +124,9 @@ public class CampaignController {
 
 
 
-        return builder(redirect("/", SEE_OTHER)).build();
+        //return builder(redirect("/", SEE_OTHER)).build();
+        return builder(redirect("/campaign/" + campaign.getCampaignId(), SEE_OTHER))
+                .set(HttpResponse::setFlash, new Flash("キャンペーン作成ありがとうございました！"))
+                .build();
     }
 }
