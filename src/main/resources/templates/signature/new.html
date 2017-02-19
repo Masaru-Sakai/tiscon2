@@ -21,8 +21,7 @@
                         <form class="ui form" method="post" action="/auth/campaign"
                               th:action="@{~/auth/campaign}">
                             <div class="field">
-                                <label>UserId</label>
-                                <input type="number" name="createUserId" placeholder="UserID"
+                                <input type="hidden" name="createUserId" placeholder="UserID"
                                        th:value="${session != null and session.principal != null} ? ${session.principal.UserId} : ${new.createUserId}"></div>
                             <div class="field">
                                 <label>タイトル</label>
