@@ -14,13 +14,13 @@ public class CampaignForm extends FormBase {
     @DecimalMin("1")
     @DecimalMax("9999")
     private String campaignId;
-    @NotNull
+
     private String title;
-    @NotNull
+
     private String statement;
-    @NotNull
+
     private Long goal;
-    @NotNull
+    
     private Long createUserId;
 
     public Long getCampaignIdLong() {
