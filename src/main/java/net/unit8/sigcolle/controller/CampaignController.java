@@ -6,13 +6,21 @@ import javax.transaction.Transactional;
 import enkan.component.doma2.DomaProvider;
 import enkan.data.Flash;
 import enkan.data.HttpResponse;
+import enkan.data.Session;
 import kotowari.component.TemplateEngine;
+import net.unit8.sigcolle.auth.LoginUserPrincipal;
 import net.unit8.sigcolle.dao.CampaignDao;
 import net.unit8.sigcolle.dao.SignatureDao;
+import net.unit8.sigcolle.dao.UserDao;
 import net.unit8.sigcolle.form.CampaignForm;
+import net.unit8.sigcolle.form.RegisterForm;
 import net.unit8.sigcolle.form.SignatureForm;
+import net.unit8.sigcolle.model.Campaign;
+import net.unit8.sigcolle.model.User;
 import net.unit8.sigcolle.model.UserCampaign;
 import net.unit8.sigcolle.model.Signature;
+
+import java.util.List;
 
 import static enkan.util.BeanBuilder.builder;
 import static enkan.util.HttpResponseUtils.RedirectStatusCode.SEE_OTHER;
@@ -90,15 +98,31 @@ public class CampaignController {
      * @return HttpResponse
      */
     public HttpResponse createForm() {
-        return templateEngine.render("signature/new");
+        return templateEngine.render("signature/new","new", new CampaignForm());
     }
 
     /**
      * 新規キャンペーン作成処理.
      * @return HttpResponse
      */
-    public HttpResponse create() {
+    public HttpResponse create(CampaignForm form) {
         // TODO: create campaign
+        if (form.hasErrors()) {
+           return templateEngine.render("signature/new", "new", form);
+        }
+        CampaignDao campaignDao = domaProvider.getDao(CampaignDao.class);
+
+
+        Campaign campaign = builder(new Campaign())
+                .set(Campaign::setTitle, form.getTitle())
+                .set(Campaign::setStatement, form.getStatement())
+                .set(Campaign::setGoal, form.getGoal())
+                .build();
+        campaignDao.insert(campaign);
+
+
+
+
         return builder(redirect("/", SEE_OTHER)).build();
     }
 }
